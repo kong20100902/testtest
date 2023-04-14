@@ -1,6 +1,7 @@
 const myFun = () => {
     return this;
 };
-// commet comment
-// something
+
+// commet comment comment2
+
 console.log(myFun() === window)
