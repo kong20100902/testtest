@@ -1,5 +1,5 @@
 const myFun = () => {
     return this;
 };
-// commet
+// commet comment
 console.log(myFun() === window)
