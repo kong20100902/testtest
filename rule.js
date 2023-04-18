@@ -51,3 +51,16 @@ function isStraightFlush(player, cc){
     }
     return false
 }
+
+function isFourOfaKind(player, cc){
+    const allCards = [...player.hand, ...cc]
+    for (let i = 0; i < allCards.length; i++){
+        if(allCards.filter(el => el.number === allCards[i].number).length === 4){
+            return [true,allCards.filter(el => el.number === allCards[i].number)]
+        }
+    }
+    return false
+}
+function isFullHouse(player, cc){
+    
+}

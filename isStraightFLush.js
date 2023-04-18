@@ -54,12 +54,21 @@ function isStraightFlush(player, cc){
     return false
 }
 
-// test case
-// pl's hand
-const hand = [new Card('spade', 12), new Card('spade', 6)]
+function isFourOfaKind(player, cc){
+    const allCards = [...player.hand, ...cc]
+    for (let i = 0; i < allCards.length; i++){
+        if(allCards.filter(el => el.number === allCards[i].number).length === 4){
+            return [true,allCards.filter(el => el.number === allCards[i].number)]
+        }
+    }
+    return false
+}
+
+
+const hand = [new Card('spade', 12), new Card('diamond', 6)]
 const pl = new Player('wenzhen', hand)
 
 // community card
-const c = [new Card('spade', 11), new Card('spade', 10), new Card('spade', 9), new Card('spade', 8), new Card('spade', 7)]
+const c = [new Card('heart', 12), new Card('club', 12), new Card('spade', 9), new Card('spade', 8), new Card('spade', 7)]
 
-console.log(isStraightFlush(pl, c))
+console.log(isFourOfaKind(pl, c))
