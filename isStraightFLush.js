@@ -58,14 +58,17 @@ function isFourOfaKind(player, cc){
     const allCards = [...player.hand, ...cc]
     for (let i = 0; i < allCards.length; i++){
         if(allCards.filter(el => el.number === allCards[i].number).length === 4){
-            return [true,allCards.filter(el => el.number === allCards[i].number)]
+            const fourOfaKind = allCards.filter(el => el.number === allCards[i].number)
+            fourOfaKind.push(allCards.filter(el => el.number !== allCards[i].number).sort((a, b) => b.number - a.number)[0])
+            console.log(fourOfaKind[4].number)
+            return [true, fourOfaKind]
         }
     }
     return false
 }
 
 
-const hand = [new Card('spade', 12), new Card('diamond', 6)]
+const hand = [new Card('spade', 12), new Card('diamond', 12)]
 const pl = new Player('wenzhen', hand)
 
 // community card
