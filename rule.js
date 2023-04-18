@@ -65,5 +65,5 @@ function isFourOfaKind(player, cc){
 }
 function isFullHouse(player, cc){
     const allCards = [...player.hand, ...cc]
-    hi
+    
 }
